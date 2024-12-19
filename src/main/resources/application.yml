@@ -41,10 +41,10 @@ spring:
               - RemoveRequestHeader=Cookie
               - RewritePath=/auth/(?<segment>.*), /$\{segment}
               - CustomFilter
-        - id: core
+        - id: admin
           uri: http://localhost:8005
           predicates:
-              - Path=/core/**
+              - Path=/admin/**
           filters:
             - RemoveRequestHeader=Cookie
             - StripPrefix=1
@@ -107,4 +107,4 @@ resilience4j.circuitbreaker:
 
 
 auth-service-url: "http://localhost:8001"
-core-service-url: "http://localhost:8005"
+admin-service-url: "http://localhost:8005"
